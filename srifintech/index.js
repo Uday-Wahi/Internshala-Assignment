@@ -1,14 +1,52 @@
+// variables initialize
+const selectoption = document.getElementById("dropdown");
+const submitbtn = document.getElementById("submit");
+submitbtn.addEventListener("click", () => {
+  text = selectoption.options[selectoption.selectedIndex].text;
+  valueUpdate(text);
+});
+const valueUpdate = (option) => {
+  console.log(option);
+};
+// fetch data
+fetch("https://docker.api.srifintech.com/testassignment", {
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Referer: "https://docker.api.srifintech.com",
+    Origin: "https://docker.api.srifintech.com",
+  },
+  method: "POST",
+  body: JSON.stringify({ ticker: "RELIANCE" }),
+})
+  .then((res) => console.log(res))
+  .catch((err) => console.error(err));
+
+/*
+Host: docker.api.srifintech.com
+Accept: application/json
+Content-Type: application/json
+Referer: https://docker.api.srifintech.com
+Origin: https://docker.api.srifintech.com
+
+{
+"ticker":"INFY"
+}
+*/
+
+// temp data
 json = {
-  strike: [2640, 2660, 2680, 2700, 2720, 2740, 2760, 2780, 2800, 2820],
+  strike: [1720, 1740, 1760, 1780, 1800, 1820, 1840, 1860, 1880, 1900],
   calloi: [
-    112000, 163750, 302250, 1448000, 382000, 770250, 485000, 293500, 2026250,
-    201250,
+    599400, 418200, 460800, 318000, 505000, 680400, 634800, 748400, 472800,
+    303600,
   ],
   putoi: [
-    213750, 231750, 171500, 773250, 142750, 162000, 69750, 30000, 222000, 5500,
+    421200, 484200, 688800, 276000, 693000, 247200, 223200, 31200, 9000, 26400,
   ],
 };
 
+// defining options
 var options = {
   colors: ["#b00909", "#0a610a"],
   series: [
@@ -32,12 +70,14 @@ var options = {
   chart: {
     type: "bar",
     height: 400,
+    toolbar: {
+      show: false,
+    },
   },
   plotOptions: {
     bar: {
       horizontal: false,
       columnWidth: "30%",
-      endingShape: "rounded",
     },
   },
   dataLabels: {
@@ -58,7 +98,6 @@ var options = {
       height: 12,
     },
   },
-
   yaxis: {
     title: {
       text: "Open Interest",
@@ -79,7 +118,19 @@ var options = {
       },
     },
   },
+  noData: {
+    text: "Loading...",
+    align: "center",
+    verticalAlign: "middle",
+    offsetY: -40,
+    style: {
+      color: "#000000",
+      fontSize: "20px",
+    },
+  },
 };
 
+// initialize a chart
 var chart = new ApexCharts(document.querySelector("#chart"), options);
+// render chart
 chart.render();

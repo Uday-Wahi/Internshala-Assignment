@@ -1,12 +1,53 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-
 body {
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: #f3f3f3;
 }
+
+h5 {
+  margin-left: 1.2rem;
+  margin-top: 2rem;
+}
+
+#dropdowncontainer {
+  margin: 0 1.5rem;
+}
+
+label {
+  margin-bottom: 0.625rem;
+}
+
+#dropdown {
+  border-color: #2cab4a;
+}
+
+#selectbox {
+  height: 50vh;
+  width: 23vw;
+  background-color: white;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.625rem;
+  float: left;
+}
+
+#submit {
+  border-radius: 0.375rem;
+  width: -webkit-fill-available;
+  padding: 0.3125rem 0;
+  font-weight: 500;
+  outline: auto;
+  background-color: #80a011;
+  color: white;
+}
+
 #chart {
-  margin-top: 23px;
-}
-.container {
-  background-color:whitesmoke;
-  border-radius: 20px;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  width: 73vw;
+  height: 93vh;
+  background-color: white;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.625rem;
+  float: right;
 }
